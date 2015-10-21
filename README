@@ -1,0 +1,6 @@
+msproc
+------
+
+command line tool for working with Mid-Side audio files
+
+- Decodes M/S recordings to stereo
