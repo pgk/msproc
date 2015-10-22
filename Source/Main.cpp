@@ -53,6 +53,26 @@ void decodeMidSide(AudioSampleBuffer *input, AudioSampleBuffer *output, long fra
 	}
 }
 
+// class MidSideProcessorOptions {
+// public:
+// 	MidSideProcessorOptions(String &anAction, short aMidChannelIndex,
+// 												  String anOutFileName) :
+// 	    action(anAction),
+// 			midChannelIndex(aMidChannelIndex),
+// 			outFileName(anOutFileName)
+// 	{
+// 	}
+//
+// 	static MidSideProcessorOptions *parseCommandLineArgs(int argc, const char *argv)
+// 	{
+// 		return new MidSideProcessorOptions(action, midChannelIndex, outFileName);
+// 	}
+//
+// 	String &action;
+// 	short midChannelIndex;
+// 	String outFileName;
+// };
+
 
 class MidSideProcessor {
 
@@ -85,7 +105,7 @@ public:
 		}
 
 		const auto outFile = juce::File(File::getCurrentWorkingDirectory()
-										.getChildFile("./ms_decoded" + file.getFileExtension()));
+										.getChildFile("./ms_decoded_" + file.getFileName()));
 		if (outFile.existsAsFile()) {
 			outFile.deleteFile();
 		}
