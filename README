@@ -4,3 +4,5 @@ msproc
 command line tool for working with Mid-Side audio files
 
 - Decodes M/S recordings to stereo
+- Encodes Stereo files to M/S
+
