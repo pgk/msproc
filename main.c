@@ -23,8 +23,6 @@ if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330,
 #include <math.h>
 #include "sndfile.h"
 
-#define LOGTEN 2.302585092994
-
 const unsigned int BUF_LEN = 1024;
 const short MAJOR_VERSION = 2;
 const short MINOR_VERSION = 0;
@@ -38,17 +36,6 @@ typedef enum action {
 void usage()
 {
 	printf("\nmsproc %d.%d.%d\n\nUsage:\n\n    msproc <action> <input file> <output file>\n\n", MAJOR_VERSION, MINOR_VERSION, PATCH_LEVEL);
-}
-
-static double dbtorms(double f)
-{
-	if (f <= 0) {
-		return 0.0F;
-	}
-	if (f > 485) {
-		f = 485.0F;
-	}
-	return exp((LOGTEN * 0.05) * (f-100.));
 }
 
 static void ms_decode(SNDFILE *infile, SNDFILE *outfile, Action a)
